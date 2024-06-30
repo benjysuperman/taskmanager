@@ -1,6 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Task} from "../models/Task";
 import {User} from "../models/users";
+import {UserService} from "./user.service";
+import {UpdateTaskModel} from "../models/UpdateTaskModel";
+import {TaskStatus} from "../models/TaskStatus";
 
 @Injectable({
   providedIn: 'root'
@@ -58,23 +61,55 @@ export class TaskService {
     new Task("u2", "Bug triage", "Prioritize and address critical bugs reported by users")
   ];
 
+  constructor(private userService: UserService) {
+  }
+
   getTasksByUserId(userId: string): Task[] {
     return this.tasks.filter( t => t.userId === userId );
   }
 
-  removeTask(user: User, task: Task) {
-    let index = user.tasks.findIndex( t => t.id === task.id);
+  removeTask(userId: string, taskId: string) {
+    const user = this.userService.findById(userId);
+    if(!user){
+      return;
+    }
+    let index = user.tasks.findIndex( t => t.id === taskId);
     user.tasks.splice(index, 1);
-    index = this.tasks.findIndex(t => t.id === task.id);
+    index = this.tasks.findIndex(t => t.id === taskId);
     this.tasks.splice(index, 1);
   }
 
-  addNewTaskToUser(user: User, task: Task) {
+  addNewTaskToUser(userId: string, task: Task) {
+    const user = this.userService.findById(userId);
+    if(!user){
+      return;
+    }
     user.tasks.unshift(task);
     this.tasks.unshift(task);
   }
 
+  findById(taskId: string) {
+    return this.tasks.find( t => t.id === taskId);
+  }
+
+  updateTaskToUser(taskId: string, updatedTask:UpdateTaskModel) {
+    const task = this.findById(taskId);
+    if(!task){
+      return;
+    }
+    task.name = updatedTask.name;
+    task.description = updatedTask.description;
+  }
+
   getEmptyTask(userId: string): Task {
     return new Task(userId, "","");
+  }
+
+  updateTaskStatus(taskId: string, toStatus: TaskStatus) {
+    const task = this.findById(taskId);
+    if(!task){
+      return;
+    }
+    task.status = toStatus;
   }
 }

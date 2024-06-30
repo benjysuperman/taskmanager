@@ -28,14 +28,12 @@ export class TaskListComponent {
     this.isAddingTask = true;
   }
 
-  openUpdateTaskFormHandler(task: Task) {
+  openUpdateTaskFormHandler(taskId: string) {
+    const task = this.taskService.findById(taskId);
+    if(!task)
+      return;
     this.currentTask = task;
     this.isUpdatingTask = true;
-  }
-
-  addNewTaskToUser(task: Task) {
-    this.taskService.addNewTaskToUser(this.selectedUser, task);
-    this.isAddingTask = false;
   }
 
   cancelDialogHandler(){
@@ -43,11 +41,7 @@ export class TaskListComponent {
     this.isUpdatingTask = false;
   }
 
-  removeTask(task: Task) {
-    this.taskService.removeTask(this.selectedUser, task);
-  }
-
-  updateTaskSubmit() {
-    this.isUpdatingTask = false;
+  removeTask(taskId: string) {
+    this.taskService.removeTask(this.selectedUser.id, taskId);
   }
 }

@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Task} from "../../../models/Task";
+import {Component, Input} from '@angular/core';
 import {TaskStatus} from "../../../models/TaskStatus";
+import {TaskService} from "../../../services/task.service";
 
 @Component({
   selector: 'app-task',
@@ -11,19 +11,19 @@ import {TaskStatus} from "../../../models/TaskStatus";
 })
 export class TaskComponent {
   protected readonly TaskStatus = TaskStatus;
-  @Input({required: true}) task!: Task;
-  @Output() removeTaskClickEmitter:EventEmitter<Task> = new EventEmitter();
-  @Output() updateTaskClickEmitter:EventEmitter<Task> = new EventEmitter();
+  @Input({required: true}) taskId!: string;
+
+  constructor(private taskService: TaskService) {
+  }
 
   switchTaskStatus(toStatus: TaskStatus) {
-    this.task.status = toStatus;
+    this.taskService.updateTaskStatus(this.taskId, toStatus);
   }
 
-  removeTaskClickHandler(task: Task) {
-    this.removeTaskClickEmitter.emit(task);
-  }
-
-  updateTaskClickHandler(task: Task) {
-    this.updateTaskClickEmitter.emit(task);
+  removeTaskClickHandler() {
+    const task = this.taskService.findById(this.taskId);
+    if(!task)
+      return;
+    this.taskService.removeTask(task.userId, task.id);
   }
 }

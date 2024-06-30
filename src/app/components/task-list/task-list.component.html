@@ -1,8 +1,8 @@
 @if (isAddingTask){
-  <app-task-form [isUpdate]=false [user]="selectedUser" (cancelClickedEmitter)="cancelDialogHandler()" (submitTaskEmitter)="addNewTaskToUser($event)"/>
+  <app-task-form [userId]="selectedUser.id" (cancelClickedEmitter)="cancelDialogHandler()" />
 }
 @if (isUpdatingTask){
-  <app-task-form [isUpdate]=true [user]="selectedUser" (cancelClickedEmitter)="cancelDialogHandler()" [task]="currentTask" (submitTaskEmitter)="updateTaskSubmit()"/>
+  <app-task-form [userId]="selectedUser.id" (cancelClickedEmitter)="cancelDialogHandler()" [taskId]="currentTask.id" />
 }
 <section class="user-header">
   <header>
@@ -13,7 +13,7 @@
 @if( selectedUser.tasks.length > 0 ) {
   <div class="tasks-container">
     @for ( task of selectedUser.tasks; track task.id){
-      <app-task (removeTaskClickEmitter)="removeTask(task)" (updateTaskClickEmitter)="openUpdateTaskFormHandler(task)" [task]="task" />
+      <app-task [taskId]="task.id" />
     }
   </div>
 }
