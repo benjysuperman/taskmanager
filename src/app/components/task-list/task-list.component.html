@@ -13,7 +13,7 @@
 @if( selectedUser.tasks.length > 0 ) {
   <div class="tasks-container">
     @for ( task of selectedUser.tasks; track task.id){
-      <app-task [taskId]="task.id" />
+      <app-task [taskId]="task.id" (onUpdateClick)="openUpdateTaskFormHandler(task.id)" />
     }
   </div>
 }

@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {User} from "../../models/users";
 import {TaskComponent} from "./task/task.component";
 import {Task} from "../../models/Task";
@@ -21,8 +21,7 @@ export class TaskListComponent {
   isUpdatingTask: boolean = false;
   currentTask!: Task;
 
-  constructor(private taskService: TaskService) {
-  }
+  constructor(private taskService: TaskService) {}
 
   openNewTaskFormHandler() {
     this.isAddingTask = true;

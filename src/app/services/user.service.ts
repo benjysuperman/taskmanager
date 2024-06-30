@@ -1,29 +1,26 @@
 import { Injectable } from '@angular/core';
-import {User} from "../models/users";
 import {RandomHelper} from "../helpers/random-helper";
-import {TaskService} from "./task.service";
+import {users, users as importedUsers} from "./datas/users/users";
+import {User} from "../models/users";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private users = [
-    new User("u1", "Bart"),
-    new User("u2", "Naomi"),
-    new User("u3", "Irene"),
-    new User("u4", "Johan"),
-    new User("u5", "Melusine"),
-    new User("u6", "Marcel"),
-    new User("u7", "Agatha"),
-    new User("u8", "Paloma"),
-    new User("u9", "Douja"),
-    new User("u10", "Linea"),
-    new User("u11", "Sofia"),
-  ];
+  private readonly users: User[];
 
-  constructor(private taskService: TaskService) {
-    this.users.forEach( u => u.tasks = taskService.getTasksByUserId(u.id));
+  constructor() {
+    const users = localStorage.getItem('users');
+    if(users === null){
+      this.users = importedUsers;
+    } else {
+      this.users = JSON.parse(users);
+    }
+  }
+
+  private saveUsersToLS(){
+    localStorage.setItem("users", JSON.stringify(this.users));
   }
 
   getRandomUser(){
@@ -36,5 +33,14 @@ export class UserService {
 
   findById(userId: string) {
     return this.users.find( u => u.id === userId);
+  }
+
+  removeTask(userId: string, taskId: string) {
+    const user = this.users.find( u => u.id === userId);
+    if(!user){
+      return;
+    }
+    let index = user.tasks.findIndex(t => t.id === taskId);
+    user.tasks.splice(index, 1);
   }
 }

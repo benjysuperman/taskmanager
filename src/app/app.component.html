@@ -5,7 +5,7 @@
           <app-user-list (onSelectUser)="onSelectedUser($event)" [activeUser]="selectedUser"/>
         </aside>
         <div class="tasks">
-          @if( selectedUser.id !== "" ){
+          @if( selectedUser){
             <app-task-list [selectedUser]="selectedUser"/>
           } @else {
             <app-no-user-error />

@@ -6,7 +6,7 @@
   -->
   @for( user of userList; track user.id ) {
     <li>
-      <app-user (click)="newUserSelectedHandler(user)" [user]="user" [active]="activeUser.id === user.id"/>
+      <app-user (click)="newUserSelectedHandler(user)" [user]="user" [active]=" activeUser && activeUser.id === user.id"/>
     </li>
   }
 </ul>

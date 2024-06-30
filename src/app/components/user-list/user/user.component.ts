@@ -1,4 +1,4 @@
-import {Component, Input, Output} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {User} from "../../../models/users";
 @Component({
   selector: 'app-user',
