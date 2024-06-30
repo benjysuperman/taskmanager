@@ -1,0 +1,46 @@
+@import "../../../assets/styles/colors";
+
+@user-header-color: @second-color;
+
+:host {
+  .user-header {
+    margin-top: 20px;
+    width: calc(100% - 30px);
+    padding: 20px 20px 50px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: @user-header-color;
+    border-radius: 4px;
+    border: 3px solid fade(@second-color, 20%);
+
+    .user-name {
+      text-align: center;
+      margin-top: 10px;
+      color: @light-color;
+      font-weight: 900;
+      font-size: 2rem;
+    }
+    .btn {
+      border-color: fade(@light-color, 80%);
+      background-color: @second-color;
+      color: @light-color;
+      &:hover, &:focus {
+        background-color: @light-color;
+        color: @second-color;
+      }
+    }
+  }
+  .tasks-container {
+    width: calc(100% - 30px);
+    margin: 20px 0 20px 0;
+    background-color: darken(@light-color, 10%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    overflow-y: auto;
+  }
+}

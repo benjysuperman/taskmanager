@@ -1,0 +1,19 @@
+@if (isAddingTask){
+  <app-task-form [isUpdate]=false [user]="selectedUser" (cancelClickedEmitter)="cancelDialogHandler()" (submitTaskEmitter)="addNewTaskToUser($event)"/>
+}
+@if (isUpdatingTask){
+  <app-task-form [isUpdate]=true [user]="selectedUser" (cancelClickedEmitter)="cancelDialogHandler()" [task]="currentTask" (submitTaskEmitter)="updateTaskSubmit()"/>
+}
+<section class="user-header">
+  <header>
+    <h2 class="user-name">{{ selectedUser.name }}'s Tasks</h2>
+  </header>
+  <button class="btn" type="button" (click)="openNewTaskFormHandler()">+&nbsp;&nbsp;Task</button>
+</section>
+@if( selectedUser.tasks.length > 0 ) {
+  <div class="tasks-container">
+    @for ( task of selectedUser.tasks; track task.id){
+      <app-task (removeTaskClickEmitter)="removeTask(task)" (updateTaskClickEmitter)="openUpdateTaskFormHandler(task)" [task]="task" />
+    }
+  </div>
+}

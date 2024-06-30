@@ -1,0 +1,34 @@
+@import "../../../assets/styles/colors";
+:host {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 80vw;
+    margin: 0 auto;
+    height: 240px;
+    border-bottom: 7px solid @second-color;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 240px;
+    }
+    .title-container {
+      position: absolute;
+      z-index: 2;
+      text-align: center;
+      h1 {
+        padding: 10px 0;
+        font-size: 2rem;
+        font-weight: 400;
+        color:@second-color;
+      }
+      p {
+        padding: 10px 0;
+        font-size: 1.6rem;
+        color:@second-color;
+      }
+    }
+  }
+}

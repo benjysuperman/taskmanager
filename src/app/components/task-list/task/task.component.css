@@ -1,0 +1,51 @@
+:host {
+  width: 100%;
+}
+:host .task {
+  width: 100%;
+  display: block;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+  padding: 20px;
+  background-color: white;
+  border-radius: 4px;
+}
+:host .task .task-title {
+  color: #E61F00;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+:host .task .task-created {
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 20px;
+  display: block;
+  font-size: 0.8rem;
+}
+:host .task .task-description {
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+:host .task .task-actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+:host .task.closed {
+  opacity: 0.8;
+}
+:host .task.closed .task-inner {
+  filter: blur(1px);
+}
+:host .task.closed .task-title {
+  text-decoration: line-through;
+}
+:host .task.closed .task-description {
+  text-decoration: line-through;
+}
+/*# sourceMappingURL=task.component.css.map */

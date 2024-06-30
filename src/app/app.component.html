@@ -1,0 +1,15 @@
+<main class="main">
+  <app-header/>
+      <div class="content">
+        <aside class="left">
+          <app-user-list (onSelectUser)="onSelectedUser($event)" [activeUser]="selectedUser"/>
+        </aside>
+        <div class="tasks">
+          @if( selectedUser.id !== "" ){
+            <app-task-list [selectedUser]="selectedUser"/>
+          } @else {
+            <app-no-user-error />
+          }
+        </div>
+      </div>
+</main>

@@ -1,0 +1,46 @@
+:host {
+  max-width: 100%;
+}
+:host .user {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  padding: 3px;
+  border-bottom: 1px solid #E61F00;
+  cursor: pointer;
+}
+:host .user .profile-picture {
+  display: block;
+  width: 75px;
+  height: 75px;
+  border-radius: 37.5px;
+  border: 3px solid #E61F00;
+}
+:host .user .user-name {
+  color: #E61F00;
+}
+:host .user.active .profile-picture,
+:host .user:focus .profile-picture,
+:host .user:hover .profile-picture {
+  border-color: #f2f2f2;
+}
+:host .user.active .user-name,
+:host .user:focus .user-name,
+:host .user:hover .user-name {
+  color: #f2f2f2;
+  font-weight: 700;
+}
+:host .user:not(.active):focus,
+:host .user:not(.active):hover {
+  background-color: rgba(230, 31, 0, 0.6);
+}
+:host .user:not(.active):focus .profile-picture,
+:host .user:not(.active):hover .profile-picture {
+  border-color: #E61F00;
+}
+:host .user.active {
+  background-color: #E61F00;
+  cursor: default;
+}
+/*# sourceMappingURL=user.component.css.map */

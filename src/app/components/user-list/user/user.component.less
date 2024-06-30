@@ -1,0 +1,44 @@
+@import "../../../../assets/styles/colors";
+:host {
+  max-width: 100%;
+  .user {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    padding: 3px;
+    border-bottom: 1px solid @second-color;
+    cursor: pointer;
+    .profile-picture {
+      display: block;
+      width: 75px;
+      height: 75px;
+      border-radius: 37.5px;
+      border: 3px solid @second-color;
+    }
+    .user-name {
+      color: @second-color;
+    }
+  }
+  .user {
+    &.active, &:focus, &:hover {
+      .profile-picture {
+        border-color: @light-color;
+      }
+      .user-name {
+        color: @light-color;
+        font-weight: 700;
+      }
+    }
+    &:not(.active):focus,  &:not(.active):hover {
+      background-color: fade(@second-color, 60%);
+      .profile-picture {
+        border-color: @second-color;
+      }
+    }
+    &.active {
+      background-color: @second-color;
+      cursor: default;
+    }
+  }
+}

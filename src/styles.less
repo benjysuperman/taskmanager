@@ -1,0 +1,81 @@
+@import "assets/styles/reset.css";
+@import "assets/styles/fonts.css";
+@import "assets/styles/colors";
+
+body {
+  font-size: 1rem;
+  font-family: Roboto, serif;
+  font-weight: 300;
+  font-style: normal;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  border: 0;
+  background-color: @body-background-color;
+  color: @font-color;
+}
+
+.main {
+  background-color: @body-background-color;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  align-self: flex-end;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: 3px solid fade(@dark-color, 90%);
+  background-color: @dark-color;
+  color: @light-color;
+  text-transform: uppercase;
+  &:hover, &:focus {
+    background-color: @light-color;
+    color: @dark-color;
+    cursor: pointer;
+  }
+  &.error {
+    border: 3px solid fade(@error-color, 90%);
+    background-color: @error-color;
+    color: white;
+    &:hover, &:focus {
+      background-color: white;
+      color: @error-color;
+    }
+  }
+  &.success {
+    border: 3px solid fade(@success-color, 90%);
+    background-color: @success-color;
+    color: white;
+    &:hover, &:focus {
+      background-color: white;
+      color: @success-color;
+    }
+  }
+  &.info {
+    border: 3px solid fade(@info-color, 90%);
+    background-color: @info-color;
+    color: white;
+    &:hover, &:focus {
+      background-color: white;
+      color: @info-color;
+    }
+  }
+  &.warning {
+    border: 3px solid fade(@warning-color, 90%);
+    background-color: @warning-color;
+    color: white;
+    &:hover, &:focus {
+      background-color: white;
+      color: @warning-color;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import "../../../assets/styles/colors";
+
+@list-border: darken(@light-color, 20%);
+
+:host {
+  width: 100%;
+  height: 100%;
+  ul {
+    border-right: 1px solid @list-border;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 240px);
+    overflow-y: auto;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.16);
+  }
+}

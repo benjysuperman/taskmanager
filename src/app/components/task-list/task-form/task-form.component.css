@@ -1,0 +1,60 @@
+.brack-drop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+}
+.modal {
+  position: fixed;
+  width: 70vw;
+  height: 70vh;
+  top: 15vh;
+  left: 15vw;
+  right: 0;
+  bottom: 0;
+  z-index: 6;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  overflow-y: auto;
+  border: 7px solid #E61F00;
+}
+.modal .modal-header {
+  padding: 10px;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #E61F00;
+  text-align: center;
+  text-transform: uppercase;
+}
+.modal .modal-content {
+  padding: 10px;
+}
+.modal .modal-content p {
+  padding: 10px 0;
+}
+.modal .modal-content label {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+.modal .modal-content input,
+.modal .modal-content textarea {
+  width: 100%;
+  padding: 5px 10px;
+  border: 1px solid #E61F00;
+}
+.modal .modal-footer {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 10px;
+}
+/*# sourceMappingURL=task-form.component.css.map */

@@ -1,0 +1,67 @@
+@import "../../../../assets/styles/colors";
+
+.brack-drop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+}
+
+.modal {
+  position: fixed;
+  width: 70vw;
+  height: 70vh;
+  top: 15vh;
+  left: 15vw;
+  right: 0;
+  bottom: 0;
+  z-index: 6;
+  background-color: @light-color;
+  border-radius: 20px;
+  overflow-y: auto;
+  border: 7px solid @second-color;
+
+  .modal-header {
+    padding: 10px;
+    font-size: 2rem;
+    font-weight: 900;
+    color: @second-color;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .modal-content {
+    padding: 10px;
+
+    p {
+      padding: 10px 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 3px;
+      font-weight: 300;
+      font-size: 1.2rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 5px 10px;
+      border: 1px solid @second-color;
+    }
+  }
+
+  .modal-footer {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 10px;
+  }
+}

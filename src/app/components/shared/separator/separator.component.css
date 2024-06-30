@@ -1,0 +1,11 @@
+:host {
+  width: 100%;
+  height: 3px;
+}
+:host span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #E61F00;
+}
+/*# sourceMappingURL=separator.component.css.map */

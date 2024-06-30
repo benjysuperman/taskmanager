@@ -1,0 +1,22 @@
+<div class="brack-drop" (click)="cancelClickHandler()"></div>
+<div class="modal">
+  <form action="" (submit)="saveTaskHandler($event)">
+    <header class="modal-header">
+      <h2>Add task</h2>
+    </header>
+    <div class="modal-content">
+        <p>
+          <label for="task.name">Title</label>
+          <input name="task.name" id="task.name" placeholder="Title" [(ngModel)]="nameCtl"/>
+        </p>
+        <p>
+          <label for="task.description">Description</label>
+          <textarea name="task.description" id="task.description" [(ngModel)]="descriptionCtl"></textarea>
+        </p>
+    </div>
+    <footer class="modal-footer">
+      <button type="button" (click)="cancelClickHandler()" class="btn info">Cancel</button>
+      <button type="submit" class="btn success">Save</button>
+    </footer>
+  </form>
+</div>

@@ -1,0 +1,11 @@
+:host .no-user-container {
+  width: 80%;
+  margin: 0 auto 20px auto;
+}
+:host .no-user-container p {
+  margin: 40px auto 20px auto;
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+}
+/*# sourceMappingURL=no-user-error.component.css.map */

@@ -1,0 +1,19 @@
+<article class="task {{ task.status }}">
+  <div class="task-inner">
+    <h3 class="task-title">{{ task.name }}</h3>
+    <time class="task-created">{{ task.dateFormatted }}</time>
+    <p class="task-description">{{ task.description }}</p>
+  </div>
+  <div class="task-actions">
+    @switch (task.status){
+      @case (TaskStatus.OPEN){
+        <button (click)="switchTaskStatus(TaskStatus.CLOSED)" class="btn success" type="button">done</button>
+      }
+      @case (TaskStatus.CLOSED){
+        <button (click)="switchTaskStatus(TaskStatus.OPEN)" class="btn info" type="button">reopen</button>
+      }
+    }
+    <button (click)="updateTaskClickHandler(task)" class="btn warning">Update</button>
+    <button (click)="removeTaskClickHandler(task)" class="btn error" type="button">remove</button>
+  </div>
+</article>

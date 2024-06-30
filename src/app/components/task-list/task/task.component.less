@@ -1,0 +1,52 @@
+@import "../../../../assets/styles/colors";
+
+:host {
+  width: 100%;
+  .task {
+    width: 100%;
+    display: block;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+    padding: 20px;
+    background-color: white;
+    border-radius: 4px;
+    .task-title {
+      color: @second-color;
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .task-created {
+      font-weight: 300;
+      font-style: italic;
+      margin-bottom: 20px;
+      display: block;
+      font-size: 0.8rem;
+    }
+    .task-description {
+      background-color: @light-color;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    .task-actions {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    &.closed {
+      opacity: 0.8;
+      .task-inner {
+        filter: blur(1px);
+      }
+      .task-title {
+        text-decoration: line-through;
+      }
+      .task-description {
+        text-decoration: line-through;
+      }
+    }
+  }
+}

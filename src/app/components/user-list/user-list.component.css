@@ -1,0 +1,14 @@
+:host {
+  width: 100%;
+  height: 100%;
+}
+:host ul {
+  border-right: 1px solid #bfbfbf;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 240px);
+  overflow-y: auto;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.16);
+}
+/*# sourceMappingURL=user-list.component.css.map */
